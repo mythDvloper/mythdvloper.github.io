@@ -40,11 +40,21 @@ header:hover {
 
 .navbar-title {
   color: white;
+  display: flex;
   font-size: 24px;
   font-weight: bold;
 }
 
-.navbar-title:hover {
+.navbar-title a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 20px;
+  transition: color 0.3s ease;
+}
+
+.navbar-title a:hover {
   color: #ffcc00;
 }
 
@@ -58,10 +68,19 @@ header:hover {
   font-size: 18px;
   font-weight: bold;
   margin-left: 20px;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
   color: #ffcc00;
+}
+
+/* Estilo do ícone hamburger */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
 }
 
 /* Configuração para o scroll snap */
@@ -102,6 +121,22 @@ section {
 /* Exemplo de imagem para cada seção */
 #home {
   background-image: url("../images/home2.jpg");
+  position: relative; /* Define uma posição relativa para o contêiner */
+  background: none; /* Remove qualquer imagem de fundo existente diretamente no elemento */
+}
+
+#home::before {
+  content: "";
+  position: absolute; /* Torna o pseudo-elemento um overlay */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../images/home2.jpg");
+  background-size: cover; /* A imagem cobre todo o contêiner */
+  background-position: center; /* Centraliza a imagem de fundo */
+  filter: blur(10px); /* Aplica o desfoque */
+  z-index: -1; /* Coloca o fundo atrás do conteúdo */
 }
 
 #licenses {
@@ -114,6 +149,27 @@ section {
   padding: 20px; /* Adiciona um padding */
   box-sizing: border-box; /* Inclui o padding e a borda na largura total */
   overflow: hidden; /* Oculta qualquer conteúdo que transborde */
+  position: relative; /* Define uma posição relativa para o contêiner */
+  background: none; /* Remove qualquer imagem de fundo existente diretamente no elemento */
+}
+
+#licenses::before {
+  content: "";
+  position: absolute; /* Torna o pseudo-elemento um overlay */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../images/licenses.jpg");
+  background-size: cover; /* A imagem cobre todo o contêiner */
+  background-position: center; /* Centraliza a imagem de fundo */
+  filter: blur(10px); /* Aplica o desfoque */
+  z-index: -1; /* Coloca o fundo atrás do conteúdo */
+}
+
+#licenses .section-text-right {
+  position: relative; /* Garante que o conteúdo fique acima do background blur */
+  z-index: 1; /* Coloca o conteúdo acima da camada borrada */
 }
 
 #licenses .card {
@@ -155,10 +211,45 @@ section {
 
 #about {
   background-image: url("../images/about.jpg");
+  position: relative; /* Define uma posição relativa para o contêiner */
+  background: none; /* Remove qualquer imagem de fundo existente diretamente no elemento */
+}
+
+#about::before {
+  content: "";
+  position: absolute; /* Torna o pseudo-elemento um overlay */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../images/about.jpg");
+  background-size: cover; /* A imagem cobre todo o contêiner */
+  background-position: center; /* Centraliza a imagem de fundo */
+  filter: blur(10px); /* Aplica o desfoque */
+  z-index: -1; /* Coloca o fundo atrás do conteúdo */
 }
 
 #projects {
   background-image: url("../images/projects.png");
+  position: relative; /* Define uma posição relativa para o contêiner */
+  background: none; /* Remove qualquer imagem de fundo existente diretamente no elemento */
+}
+
+#projects::before {
+  content: "";
+  position: absolute; /* Torna o pseudo-elemento um overlay */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../images/projects.png");
+  background-size: cover; /* A imagem cobre todo o contêiner */
+  background-position: center; /* Centraliza a imagem de fundo */
+  background-repeat: no-repeat;
+  filter: blur(5px); /* Aplica o desfoque */
+  z-index: -1; /* Coloca o fundo atrás do conteúdo */
+  margin: 0; /* Garante que não há margens */
+  padding: 0; /* Remove padding */
 }
 
 #contact {
@@ -167,6 +258,22 @@ section {
   justify-content: space-between; /* Espaça os elementos */
   padding: 50px; /* Espaçamento interno */
   background-color: #f9f9f9; /* Fundo claro */
+  position: relative; /* Define uma posição relativa para o contêiner */
+  background: none; /* Remove qualquer imagem de fundo existente diretamente no elemento */
+}
+
+#contact::before {
+  content: "";
+  position: absolute; /* Torna o pseudo-elemento um overlay */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../images/contact2.png");
+  background-size: cover; /* A imagem cobre todo o contêiner */
+  background-position: center; /* Centraliza a imagem de fundo */
+  filter: blur(10px); /* Aplica o desfoque */
+  z-index: -1; /* Coloca o fundo atrás do conteúdo */
 }
 
 section:nth-child(odd) {
@@ -195,14 +302,14 @@ section:nth-child(odd) {
 /* Estilo do título da seção */
 .section-white h1 {
   font-size: 36px; /* Tamanho do título */
-  color: #333; /* Cor do texto */
+  color: #d6d6d6; /* Cor do texto */
   margin-bottom: 10px; /* Margem inferior */
 }
 
 /* Estilo do texto da seção */
 .section-white p {
   font-size: 18px; /* Tamanho do texto */
-  color: #666; /* Cor do texto */
+  color: #d6d6d6; /* Cor do texto */
 }
 
 /* Estilo para o texto de cada seção no lado direito */
@@ -266,7 +373,7 @@ section:nth-child(odd) {
 .card {
   background-color: #fdfdfd; /* Fundo branco */
   border-radius: 8px; /* Bordas arredondadas */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra suave */
   padding: 20px; /* Espaçamento interno */
   margin-left: 20px; /* Margem à esquerda */
   max-width: 300px; /* Largura máxima do cartão */
@@ -284,8 +391,20 @@ section:nth-child(odd) {
 
 /* Responsividade para dispositivos móveis */
 @media (max-width: 768px) {
-  .navbar {
+  /* .navbar {
     flex-direction: column;
+  } */
+
+  /* Esconder a navbar em telas menores */
+  .navbar {
+    display: none;
+    flex-direction: column; /* Exibir itens em coluna no mobile */
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #3498db;
+    padding: 10px;
+    border-radius: 8px;
   }
 
   .nav-links {
@@ -296,6 +415,16 @@ section:nth-child(odd) {
 
   .nav-links a {
     margin: 10px 0;
+  }
+
+  /* Exibir o ícone de três barras (hamburger) */
+  .hamburger {
+    display: block;
+  }
+
+  /* Quando o menu é exibido */
+  .navbar.active {
+    display: flex;
   }
 
   /* Ajuste do layout para telas pequenas */
@@ -310,8 +439,8 @@ section:nth-child(odd) {
     text-align: left; /* Texto alinhado à esquerda para ambos */
   }
 
-  .section-text-right {
-    margin-top: 20px;
+  .section-title {
+    text-align: center;
   }
 
   #contact {
@@ -326,5 +455,47 @@ section:nth-child(odd) {
   #licenses .card {
     flex: 0 0 100%; /* Cada card ocupa 100% em telas pequenas */
     margin: 10px 0; /* Margem em cima e embaixo */
+  }
+
+  #licenses .section-text-right {
+    display: flex;
+    flex-direction: column; /* Define a direção como coluna para empilhar os cards */
+    justify-content: flex-start; /* Alinha os cards ao início (topo) */
+    align-items: center; /* Alinha os cards à esquerda */
+    margin-top: 20px; /* Espaçamento acima da seção de cards */
+  }
+
+  #licenses .card {
+    flex: 1 1 30%; /* Flex-grow, flex-shrink e flex-basis, permitindo que os cards ocupem 30% da largura do contêiner */
+    margin: 10px 10px; /* Margem lateral para espaçamento entre os cards */
+    padding: 20px;
+    border: 1px solid #ddd; /* Borda do card */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1); /* Sombra do card */
+    background-color: white; /* Fundo branco */
+    min-width: 200px;
+    min-height: 220px;
+    max-height: 220px;
+    transition: transform 0.4s;
+    opacity: 0.7;
+  }
+
+  .section-white {
+    width: 100%; /* Define largura máxima para o título */
+    font-size: 25px;
+    font-weight: bold;
+    color: #e0e0e0;
+    text-align: center;
+    margin-right: 20px;
+  }
+
+  .card {
+    background-color: #fdfdfd; /* Fundo branco */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.8); /* Sombra suave */
+    padding: 20px; /* Espaçamento interno */
+    max-width: 300px; /* Largura máxima do cartão */
+    transition: transform 0.3s; /* Transição suave para o efeito de hover */
+    margin-bottom: 100px;
   }
 }
